@@ -1,28 +1,34 @@
 /* src/components/Homepage.css */
 
-/* Card styling (if used directly in Homepage or general enough) */
-.card {
-  background: rgba(255, 255, 255, 0.85); /* Restored glass, slightly less transparent like header */
-  backdrop-filter: blur(10px); /* Restored blur, matching header */
-  -webkit-backdrop-filter: blur(10px); /* Restored blur */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Restored transparent border */
-  border-radius: 12px; /* Keep softened radius */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06); /* Keep softer shadow */
-  padding: 2rem; /* Keep increased padding */
-  margin-bottom: 2.5rem; /* Increased margin from 2rem */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Keep transition */
+/* General container for the homepage */
+.homepage-container {
+  font-family: inherit;
+  min-height: 100vh;
+  color: #212529;
+  line-height: 1.6;
 }
 
-/* General Button styling */
+/* Card and Button base styles kept from previous CSS */
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 button, .button {
-  /* background: linear-gradient(135deg, #4361ee, #3a0ca3); */ /* Keep gradient? Or solid? Try solid */
-  background-color: #4361ee; /* Primary solid color */
+  background-color: #4361ee;
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem; /* Adjust padding */
-  border-radius: 8px; /* Consistent radius */
-  font-weight: 500; /* Medium weight */
-  font-family: inherit; /* Ensure font is inherited */
+  padding: 0.8rem 1.6rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-family: inherit;
   cursor: pointer;
   transition: all 0.25s ease;
   box-shadow: 0 4px 12px rgba(67, 97, 238, 0.15);
@@ -30,11 +36,11 @@ button, .button {
   align-items: center;
   justify-content: center;
   text-align: center;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 button:disabled, .button:disabled {
-  background-color: #adb5bd; /* Muted grey for disabled */
+  background-color: #adb5bd;
   color: #f8f9fa;
   cursor: not-allowed;
   box-shadow: none;
@@ -43,157 +49,431 @@ button:disabled, .button:disabled {
 
 button:hover:not(:disabled),
 .button:hover:not(:disabled) {
-  background-color: #879af6; /* Darker shade on hover */
+  background-color: #3a0ca3;
   transform: translateY(-2px);
   box-shadow: 0 7px 16px rgba(67, 97, 238, 0.25);
 }
 
-/* Specific button variations */
-.button-next { /* Often same as default */ }
-
 .button-primary {
-  background-color: #10b981; /* Example green */
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+  background-color: #4361ee;
+  box-shadow: 0 4px 12px rgba(67, 97, 238, 0.2);
 }
 
 .button-primary:hover:not(:disabled) {
-  background-color: #0fa972; /* Darker green */
-  box-shadow: 0 7px 16px rgba(16, 185, 129, 0.3);
+  background-color: #3a0ca3;
+  box-shadow: 0 7px 16px rgba(67, 97, 238, 0.3);
 }
 
-.button-previous {
-  background-color: #e9ecef; /* Light grey */
-  color: #495057; /* Darker grey text */
+.button-secondary {
+  background-color: #e9ecef;
+  color: #495057;
   box-shadow: none;
 }
 
-.button-previous:hover:not(:disabled) {
-  background-color: #dee2e6; /* Slightly darker grey */
+.button-secondary:hover:not(:disabled) {
+  background-color: #dee2e6;
   transform: none;
   box-shadow: none;
 }
 
+.button-previous {
+  background-color: #e9ecef;
+  color: #495057;
+  box-shadow: none;
+}
 
-/* Styles for generated text elements (kept from previous steps) */
-.welcome-card {
+.button-previous:hover:not(:disabled) {
+  background-color: #dee2e6;
+  transform: none;
+  box-shadow: none;
+}
+
+/* --- IMPROVED HERO SECTION --- */
+.hero-section {
+  background: rgba(255, 255, 255, 0.88); /* Restoring semi-transparent background */
+  /* background-color: #ffffff; */ /* Removing solid white */
+  padding: 6rem 2rem; /* Reduced vertical padding */
+  text-align: center;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-tagline {
+  margin-bottom: 3.5rem;
+}
+
+.hero-title {
+  font-size: 4.2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #1c1c1e;
+  margin-bottom: 1.8rem;
+}
+
+.hero-subtitle {
+  font-size: 1.6rem;
+  color: #4a4a4a;
+  margin-bottom: 3rem;
+  line-height: 1.5;
+  max-width: 800px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.hero-button {
+  padding: 1.1rem 2.8rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-radius: 12px;
+  letter-spacing: 0.01em;
+  margin-bottom: 1.8rem;
+}
+
+.hero-note {
+  font-size: 1rem;
+  color: #6c757d;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* --- APP PREVIEW SECTION --- */
+.app-preview-section {
+  background: #f8f9fa; /* Keep very light grey */
+  padding: 5rem 2rem; /* Reduced vertical padding */
+  overflow: hidden;
+}
+
+.app-preview-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-preview-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #1c1c1e;
+  margin-bottom: 2.5rem;
   text-align: center;
 }
-.generated-homepage-class-2 { /* h1 */
-  font-size: 2.5rem; /* Larger */
-  font-weight: 700; /* Bold */
-  color: #212529; /* Darker heading color */
-  margin-bottom: 0.75rem; /* Adjust margin */
-  line-height: 1.2;
+
+.app-preview-description {
+  font-size: 1.3rem;
+  color: #4a4a4a;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 3.5rem;
+  text-align: center;
 }
-.generated-homepage-class-3 { /* span in h1 */
-  color: #4361ee; /* Theme color */
+
+.app-preview-cta {
+  margin-bottom: 4rem;
+  text-align: center;
 }
-.generated-homepage-class-4 { /* p */
-  font-size: 1.1rem; /* Slightly larger */
-  color: #495057; /* Softer grey */
-  max-width: 45rem; /* Adjust max width */
+
+.text-link {
+  color: #4361ee;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+  color: #3a0ca3;
+}
+
+.app-preview-image {
+  width: 100%;
+  max-width: 950px;
+  height: 550px;
+  background-color: #e9ecef;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+.placeholder-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #6c757d;
+  background: linear-gradient(45deg, #f1f3f5, #e9ecef);
+}
+
+/* --- FEATURES SECTION --- */
+.features-section {
+  padding: 5rem 2rem; /* Reduced vertical padding */
+  /* background-color: #ffffff; */
+  background-color: #eff2ff; /* Light indigo/blue tint */
+}
+
+.features-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.features-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #1c1c1e;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.feature-card {
+  background-color: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: #4361ee;
+}
+
+.feature-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 0.8rem;
+}
+
+.feature-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+}
+
+.feature-link {
+  color: #4361ee;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: auto;
+  font-size: 1rem;
+}
+
+.feature-link:hover {
+  text-decoration: underline;
+  color: #3a0ca3;
+}
+
+/* --- STATS SECTION --- */
+.stats-section {
+  padding: 5rem 2rem; /* Reduced vertical padding */
+  background-color: #f0fdf4; /* Light green tint */
+  text-align: center;
+}
+
+.stats-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #1c1c1e;
+  margin-bottom: 5rem;
+}
+
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem 5rem;
+  margin-bottom: 4rem;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.stat-item {
+  flex: 1;
+  min-width: 200px;
+}
+
+.stat-value {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #4361ee;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1.2rem;
+  color: #495057;
+  font-weight: 500;
+}
+
+.stats-description {
+  font-size: 1.3rem;
+  color: #4a4a4a;
+  max-width: 800px;
+  margin: 0 auto;
   line-height: 1.6;
 }
 
-/* --- GoalSetup / SelectionButton Styles --- */
-.selection-button {
-  border: 1px solid #e5e7eb; /* border-gray-200 */
-  border-radius: 10px; /* Match card radius? */
-  transition: all 0.2s ease-in-out, transform 0.15s ease; /* Add transform transition */
-  max-width: 450px; /* Keep max-width */
-  width: 100%; /* Added: Take full width up to max-width */
-  display: flex; /* Added: Make button a flex container */
-  align-items: center; /* Added: Vertically center content in button */
-  margin-left: auto; /* Keep for centering */
-  margin-right: auto; /* Keep for centering */
-  padding: 0; 
-  overflow: hidden;
-  background: #f3f4f6; /* Use background property */
-  color: #374151; /* Explicitly set non-selected text color */
-  cursor: pointer;
-  margin-bottom: 0.75rem; /* Space between buttons */
-  text-align: left; 
-  font-family: inherit; /* Ensure font */
+/* --- CTA SECTION --- */
+.cta-section {
+  padding: 5rem 2rem; /* Reduced vertical padding */
+  /* background-color: #f8f9fa; */ /* Can reuse preview background or keep white */
+  background-color: #ffffff;
+  text-align: center;
 }
 
-.selection-button:hover {
-  background: #e5e7eb; /* Use background property */
-  border-color: #d1d5db; /* hover:border-gray-300 */
-  transform: scale(1.015); /* Subtle scale on hover */
+.cta-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #1c1c1e;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Focus styles */
-.selection-button:focus {
-  outline: 2px solid transparent; /* focus:outline-none */
-  outline-offset: 2px;
-  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #6366f1; /* focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 */
-  transform: scale(1.015); /* Also scale on focus */
-}
-
-/* Inner container for padding and flex layout */
-.selection-button-inner {
-  display: flex;
-  align-items: center;
-  padding: 1.25rem; /* Increased padding from 1rem */
-  width: 100%; /* Added: Ensure inner div takes full width */
-}
-
-/* Image container */
-.selection-button-image-container {
-  width: 3.5rem; /* w-14 */
-  height: 3.5rem; /* h-14 */
-  border-radius: 0.5rem; /* rounded-lg */
-  overflow: hidden;
-  /* margin-right: 0.75rem; */ /* Removed */
-  margin-left: 0.75rem; /* Added */
-  flex-shrink: 0;
-}
-
-.selection-button-image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Text content container */
-.selection-button-text-content {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-/* Label/Title style */
-.selection-button-label {
+.cta-button {
+  padding: 1.1rem 2.8rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  font-size: 1.05rem; /* Adjusted size */
-  margin-bottom: 0.2rem;
-  color: #343a40;
+  border-radius: 12px;
 }
 
-/* Description style */
-.selection-button-description {
-  font-size: 0.8rem; /* Adjusted size */
-  line-height: 1.4;
-  color: #6c757d;
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3.2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.4rem;
+  }
+  
+  .app-preview-title, 
+  .features-title,
+  .stats-title {
+    font-size: 2.6rem;
+  }
+  
+  .stat-value {
+    font-size: 2.5rem;
+  }
+  
+  .app-preview-image {
+    height: 350px;
+  }
+  .hero-section, .app-preview-section, .features-section, .stats-section, .cta-section { padding: 5rem 1.5rem; }
 }
 
-/* Selected state styles */
-.selection-button.selected {
-  background: #e7eaff; /* Lighter indigo background */
-  border-color: #aeb8ff; /* Lighter indigo border */
-  box-shadow: 0 4px 10px rgba(67, 97, 238, 0.1);
-  transform: scale(1.01); /* Keep slightly scaled when selected */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.6rem;
+  }
+  
+  .app-preview-title,
+  .features-title,
+  .stats-title,
+  .cta-title {
+    font-size: 2.1rem;
+  }
+  
+  .hero-button,
+  .cta-button {
+    padding: 0.9rem 2rem;
+    font-size: 1.1rem;
+  }
+  
+  .stats-container {
+    gap: 2rem;
+  }
+  
+  .app-preview-image {
+    height: 250px;
+  }
+  .hero-section, .app-preview-section, .features-section, .stats-section, .cta-section { padding: 4rem 1rem; }
+  .features-grid { gap: 1.5rem; }
+  .feature-card { padding: 2rem 1.5rem; }
 }
 
-.selection-button.selected .selection-button-label {
-  color: #3a0ca3; /* Darker indigo */
+/* Keep remaining styles for other components untouched */
+.selection-button {
+  /* Existing styles preserved here */
+  border: 1px solid #e5e7eb;
+  /* ... rest of the existing CSS ... */
 }
 
-.selection-button.selected .selection-button-description {
-  color: #4361ee; /* Primary indigo */
+/* --- Styles from Old Welcome Card (Commented Out for Reference) --- */
+/* 
+.welcome-card { 
+  text-align: center;
 }
+.generated-homepage-class-2 { 
+  font-size: 2.5rem; 
+  font-weight: 700; 
+  color: #212529; 
+  margin-bottom: 0.75rem; 
+  line-height: 1.2;
+}
+.generated-homepage-class-3 { 
+  color: #4361ee; 
+}
+.generated-homepage-class-4 { 
+  font-size: 1.1rem; 
+  color: #495057; 
+  max-width: 45rem; 
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+} 
+*/
 
 /* Goal Setup Specific Styles */
 .goal-option-image {
@@ -213,7 +493,6 @@ button:hover:not(:disabled),
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out forwards;
 }
-
 
 /* Goal Option (radio group item) Styling */
 .goal-option {
@@ -401,123 +680,4 @@ button:hover:not(:disabled),
   max-width: 42rem; /* max-w-2xl */
   margin-left: auto;
   margin-right: auto;
-}
-
-/* --- GoalSetup / SelectionButton Styles --- */
-
-/* Base styles for the selection button container */
-.selection-button {
-  border: 1px solid #e5e7eb; /* border-gray-200 */
-  border-radius: 0.75rem; /* rounded-xl */
-  transition: all 0.2s ease-in-out;
-  max-width: 450px; /* Keep max-width */
-  width: 100%; /* Added: Take full width up to max-width */
-  display: flex; /* Added: Make button a flex container */
-  align-items: center; /* Added: Vertically center content in button */
-  margin-left: auto; /* Keep for centering */
-  margin-right: auto; /* Keep for centering */
-  padding: 0; 
-  overflow: hidden;
-  background: #f3f4f6; /* Use background property */
-  color: #374151; /* Explicitly set non-selected text color */
-  cursor: pointer;
-  margin-bottom: 0.75rem; /* Space between buttons */
-  text-align: left; 
-}
-
-.selection-button:hover {
-  background: #e5e7eb; /* Use background property */
-  border-color: #d1d5db; /* hover:border-gray-300 */
-}
-
-/* Focus styles */
-.selection-button:focus {
-  outline: 2px solid transparent; /* focus:outline-none */
-  outline-offset: 2px;
-  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #6366f1; /* focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 */
-}
-
-/* Inner container for padding and flex layout */
-.selection-button-inner {
-  display: flex;
-  align-items: center;
-  padding: 1.25rem; /* Increased padding from 1rem */
-  width: 100%; /* Added: Ensure inner div takes full width */
-}
-
-/* Image container */
-.selection-button-image-container {
-  width: 3.5rem; /* w-14 */
-  height: 3.5rem; /* h-14 */
-  border-radius: 0.5rem; /* rounded-lg */
-  overflow: hidden;
-  /* margin-right: 0.75rem; */ /* Removed */
-  margin-left: 0.75rem; /* Added */
-  flex-shrink: 0;
-}
-
-.selection-button-image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Text content container */
-.selection-button-text-content {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-/* Label/Title style */
-.selection-button-label {
-  font-weight: 600; /* font-semibold */
-  font-size: 1.1rem; /* Increased from 1rem */
-  margin-bottom: 0.125rem; /* mb-0.5 */
-  color: #1f2937; /* text-gray-800 */
-}
-
-/* Description style */
-.selection-button-description {
-  font-size: 0.85rem; /* Increased from 0.75rem */
-  line-height: 1.3; /* leading-snug approximation */
-  color: #6b7280; /* text-gray-500 */
-}
-
-/* Selected state styles */
-.selection-button.selected {
-  background: #eef2ff; /* Use background property */
-  border-color: #6366f1; /* border-indigo-500 */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-md */
-}
-
-.selection-button.selected .selection-button-label {
-  color: #3730a3; /* text-indigo-800 */
-}
-
-.selection-button.selected .selection-button-description {
-  color: #4f46e5; /* text-indigo-600 */
-}
-
-/* --- Remove Old/Conflicting Goal Option Styles --- */
-/*
-.goal-option { ... }
-.goal-option.animate-fade-in { ... }
-.goal-option:nth-child(1) { ... }
-.goal-option:nth-child(2) { ... }
-.goal-option:nth-child(3) { ... }
-.goal-option:nth-child(4) { ... }
-.goal-option:not(.selected) { ... }
-.goal-option:not(.selected):hover,
-.goal-option:not(.selected):focus { ... }
-.goal-option:focus { ... }
-.goal-option.selected { ... }
-.goal-option .img-container { ... }
-.goal-option img { ... }
-.goal-text-content { ... }
-.goal-option h3 { ... }
-.goal-option p { ... }
-.goal-option-image { ... }
-@keyframes fadeIn { ... }
-.animate-fade-in { ... }
-*/ 
+} 

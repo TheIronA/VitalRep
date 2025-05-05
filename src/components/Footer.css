@@ -1,57 +1,154 @@
 /* src/components/Footer.css */
 .app-footer {
   grid-area: footer;
-  padding: 1.5rem 5%; /* Adjust padding */
-  /* background: rgba(255, 255, 255, 0.8); */ /* Remove glass? */
-  background-color: #ffffff; /* Match card background */
-  /* backdrop-filter: blur(12px); */
-  /* -webkit-backdrop-filter: blur(12px); */
-  /* border-top: 1px solid rgba(255, 255, 255, 0.3); */
-  border-top: 1px solid #e9ecef; /* Match card border */
-  text-align: center;
-  margin-top: 3rem; /* Add more margin top */
+  padding: 3rem 5%; /* Increased padding for more space */
+  background-color: #212529;
+  color: #adb5bd;
+  text-align: left; /* Align text left by default for columns */
 }
 
-.footer-content {
+.footer-main-content {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem; /* Gap between columns */
+  margin-bottom: 2rem; /* Space before copyright */
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px; /* Allow columns to wrap */
+  padding: 0 1rem; /* Add some padding within columns */
+}
+
+/* New wrapper for logo and title */
+.footer-logo-title {
+  display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem; /* Space between logo and title */
+  margin-bottom: 1rem; /* Move margin here */
+}
+
+.footer-brand .footer-logo {
+  height: 35px;
+  /* margin-bottom: 1rem; */ /* Removed margin from here */
+}
+
+/* New style for the brand title */
+.footer-brand-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+.footer-brand .footer-tagline {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #adb5bd;
+  max-width: 250px; /* Limit width of tagline */
+}
+
+.footer-heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff; /* White heading */
+  margin-bottom: 1rem;
 }
 
 .footer-links {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  gap: 1.5rem;
+}
+
+.footer-links li {
+  margin-bottom: 0.6rem; /* Space between links */
 }
 
 .footer-links a {
-  color: #495057; /* Softer grey for links */
+  color: #adb5bd;
   text-decoration: none;
   transition: color 0.2s ease;
-  font-size: 0.85rem; /* Slightly smaller */
+  font-size: 0.95rem; /* Slightly larger link text */
 }
 
 .footer-links a:hover {
-  color: #4361ee; /* Theme color on hover */
+  color: #ffffff;
+}
+
+.footer-contact p {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: #adb5bd;
+}
+
+.footer-bottom {
+  margin-top: 2rem; /* Space above the copyright */
+  padding-top: 1.5rem; /* Padding above the copyright */
+  border-top: 1px solid #343a40; /* Separator line */
+  width: 100%;
+  text-align: center; /* Center the copyright */
 }
 
 .footer-copyright {
-  font-size: 0.8rem;
-  color: #6c757d; /* Muted color */
+  font-size: 0.85rem;
+  color: #adb5bd;
+}
+
+/* Social Links Styles */
+.footer-socials {
+  display: flex;
+  gap: 1.25rem; /* Space between icons */
+  margin-top: 1rem; /* Space above icons */
+}
+
+.social-link {
+  color: #adb5bd; /* Match footer text color */
+  font-size: 1.4rem; /* Size of the icons */
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-link:hover {
+  color: #ffffff; /* White on hover */
+  transform: translateY(-2px); /* Slight lift effect */
 }
 
 /* Media query adjustments */
 @media (max-width: 768px) {
   .app-footer {
-    padding: 1.5rem 4%;
+    padding: 2.5rem 4%;
+    text-align: center; /* Center text on mobile */
+  }
+  .footer-main-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem; /* Adjust gap for stacked columns */
+    margin-bottom: 2.5rem;
+  }
+  .footer-column {
+    padding: 0;
+    min-width: auto; /* Remove min-width */
+    width: 100%; /* Ensure columns take full width when stacked */
+    max-width: 350px; /* Optional: Limit width */
+    display: flex; /* Ensure brand column items center */
+    flex-direction: column; /* Stack items in brand column */
+    align-items: center; /* Center items in brand column */
+  }
+  .footer-logo-title {
+    justify-content: center; /* Center logo/title within their container */
+  }
+  .footer-brand .footer-tagline {
+    max-width: none; /* Remove max width on mobile */
   }
   .footer-links {
-    flex-direction: column;
-    gap: 0.5rem;
+     /* Links already vertical, ensure centered */
+  }
+  .footer-socials {
+    justify-content: center; /* Center icons on mobile */
+    gap: 1.5rem; /* Adjust gap */
   }
 } 

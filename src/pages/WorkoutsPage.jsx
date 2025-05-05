@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import GoalSetup from '../components/GoalSetup';
 import WorkoutPlan from '../components/WorkoutPlan';
 import { getWorkoutPlan } from '../data/mockWorkouts';
+import './WorkoutsPage.css';
 
 const WorkoutsPage = () => {
   const [workoutPlan, setWorkoutPlan] = useState(null);

@@ -1,0 +1,371 @@
+/* src/pages/WorkoutsPage.css */
+
+/* Card styling (used for wrapping sections) */
+.card {
+  background: rgba(255, 255, 255, 0.85); /* Glass effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* General Button styling */
+button, .button {
+  background-color: #4361ee; /* Primary solid color */
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(67, 97, 238, 0.15);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+}
+
+button:disabled, .button:disabled {
+  background-color: #adb5bd;
+  color: #f8f9fa;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+button:hover:not(:disabled),
+.button:hover:not(:disabled) {
+  background-color: #879af6; /* Adjusted hover color */
+  transform: translateY(-2px);
+  box-shadow: 0 7px 16px rgba(67, 97, 238, 0.25);
+}
+
+/* Specific button variations */
+.button-next { /* Often same as default */ }
+
+.button-primary {
+  background-color: #10b981; /* Example green */
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+.button-primary:hover:not(:disabled) {
+  background-color: #0fa972; /* Darker green */
+  box-shadow: 0 7px 16px rgba(16, 185, 129, 0.3);
+}
+
+.button-previous {
+  background-color: #e9ecef; /* Light grey */
+  color: #495057; /* Darker grey text */
+  box-shadow: none;
+}
+
+.button-previous:hover:not(:disabled) {
+  background-color: #dee2e6; /* Slightly darker grey */
+  transform: none;
+  box-shadow: none;
+}
+
+/* Welcome card specific styles */
+.welcome-card {
+  text-align: center;
+}
+
+/* Styles for text elements within welcome card */
+.generated-homepage-class-2 { /* h1 */
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+.generated-homepage-class-3 { /* span in h1 */
+  color: #4361ee;
+}
+.generated-homepage-class-4 { /* p */
+  font-size: 1.1rem;
+  color: #495057;
+  max-width: 45rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* --- GoalSetup / SelectionButton Styles (Using second definition block from user input) --- */
+/* Base styles for the selection button container */
+.selection-button {
+  border: 1px solid #e5e7eb; /* border-gray-200 */
+  border-radius: 0.75rem; /* rounded-xl */
+  transition: all 0.2s ease-in-out;
+  max-width: 450px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  overflow: hidden;
+  background: #f3f4f6;
+  color: #374151;
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
+.selection-button:hover {
+  background: #e5e7eb;
+  border-color: #d1d5db;
+}
+
+/* Focus styles */
+.selection-button:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #6366f1;
+}
+
+/* Inner container for padding and flex layout */
+.selection-button-inner {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem;
+  width: 100%;
+}
+
+/* Image container */
+.selection-button-image-container {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-left: 0.75rem;
+  flex-shrink: 0;
+}
+
+.selection-button-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text content container */
+.selection-button-text-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Label/Title style */
+.selection-button-label {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.125rem;
+  color: #1f2937;
+}
+
+/* Description style */
+.selection-button-description {
+  font-size: 0.85rem;
+  line-height: 1.3;
+  color: #6b7280;
+}
+
+/* Selected state styles */
+.selection-button.selected {
+  background: #eef2ff; /* Indigo background */
+  border-color: #6366f1; /* Indigo border */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-md */
+}
+
+.selection-button.selected .selection-button-label {
+  color: #3730a3; /* Darker Indigo text */
+}
+
+.selection-button.selected .selection-button-description {
+  color: #4f46e5; /* Indigo text */
+}
+
+
+/* --- Goal Option Styles (Using first definition block from user input) --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Goal Option (radio group item) Styling */
+.goal-option {
+  display: flex;
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  opacity: 0;
+  transform: translateY(10px);
+  max-width: 400px;
+  width: 100%;
+  margin-left: auto; /* Center */
+  margin-right: auto; /* Center */
+  margin-bottom: 0.75rem;
+}
+
+/* Apply animation */
+.goal-option.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Stagger animation delays */
+.goal-option:nth-child(1) { animation-delay: 0s; }
+.goal-option:nth-child(2) { animation-delay: 0.05s; }
+.goal-option:nth-child(3) { animation-delay: 0.1s; }
+.goal-option:nth-child(4) { animation-delay: 0.15s; }
+/* Add more if needed */
+
+/* Combine hover and focus for non-selected */
+.goal-option:not(.selected):hover,
+.goal-option:not(.selected):focus {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border-color: rgba(67, 97, 238, 0.3);
+  background-color: rgba(255, 255, 255, 0.9);
+  outline: none;
+}
+
+/* Add distinct focus style if needed, or rely on hover/border */
+.goal-option:focus {
+  outline: 2px solid #4361ee;
+  outline-offset: 2px;
+}
+
+.goal-option.selected {
+  border-color: #4361ee;
+  background-color: rgba(67, 97, 238, 0.1);
+  box-shadow: 0 6px 18px rgba(67, 97, 238, 0.15);
+  transform: scale(1.03);
+  outline: none;
+}
+
+/* Container for the image */
+.goal-option .img-container {
+  margin-right: 1rem;
+  border-radius: 8px;
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+}
+
+.goal-option img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  border-radius: 8px;
+}
+
+/* Container for text content */
+.goal-text-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.goal-option h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+  color: #1a1a2e;
+  font-weight: 600;
+}
+
+.goal-option p {
+  font-size: 0.85rem;
+  color: #4a5568;
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* Workout Plan specific styles */
+.workout-card { /* Apply to the card showing the generated plan */
+ position: relative;
+ overflow: hidden;
+ /* Inherits .card styles, add specific workout plan styles below */
+}
+
+.workout-card::before {
+ content: "";
+ position: absolute;
+ top: -50%;
+ left: -50%;
+ width: 200%;
+ height: 200%;
+ background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+ transition: transform 0.5s ease;
+ transform-origin: center;
+ z-index: 0;
+ pointer-events: none;
+ transform: scale(0);
+}
+
+.workout-card:hover::before {
+ transform: scale(1);
+}
+
+
+/* Media Queries relevant to WorkoutsPage content */
+@media (max-width: 768px) {
+  .card {
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  .generated-homepage-class-2 { /* h1 */
+      font-size: 2rem;
+  }
+  .generated-homepage-class-4 { /* p */
+      font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  button, .button {
+    padding: 0.55rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  .generated-homepage-class-2 { /* h1 */
+      font-size: 1.75rem;
+  }
+  .generated-homepage-class-4 { /* p */
+      font-size: 0.95rem;
+  }
+  .selection-button-inner {
+      padding: 1rem;
+  }
+  .selection-button-label {
+      font-size: 1rem;
+  }
+  .selection-button-description {
+      font-size: 0.8rem;
+  }
+  .goal-option {
+      padding: 0.6rem 0.8rem;
+  }
+  .goal-option .img-container {
+      width: 50px;
+      height: 50px;
+      margin-right: 0.75rem;
+  }
+  .goal-option h3 {
+      font-size: 0.95rem;
+  }
+  .goal-option p {
+      font-size: 0.8rem;
+  }
+} 
