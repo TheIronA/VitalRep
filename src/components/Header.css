@@ -1,0 +1,179 @@
+.app-header {
+  grid-area: header;
+  padding: 0.75rem 5%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.6);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+/* Logo container */
+.logo-container {
+  gap: 0.6rem;
+  grid-column: 1 / 2;
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo-container h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+/* Style for the new header title span */
+.header-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #4361ee;
+  margin: 0;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.app-header .logo-img {
+  height: 36px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.app-header .logo-img:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation list inside header */
+.nav-list {
+  list-style: none;
+  gap: 1.75rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #343a40;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.25rem 0;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-list a:hover {
+  color: #4361ee;
+}
+
+.nav-list a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #4361ee;
+  transition: width 0.3s ease;
+}
+
+.nav-list a:hover::after {
+  width: 100%;
+}
+
+/* Mobile menu button (hidden by default) */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #1a1a2e;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 101; /* Ensure it's above nav list */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 0.75rem 4%; /* Adjust padding for mobile */
+  }
+
+  .logo-container h1 {
+    font-size: 1.25rem;
+  }
+
+  .app-header .logo-img {
+    height: 32px;
+  }
+
+  .mobile-menu-btn {
+    display: block; /* Show the button */
+  }
+
+  .nav-list {
+    position: fixed; /* Change to fixed for overlay */
+    top: 0;
+    right: -100%; /* Start off-screen */
+    width: 75%; /* Or adjust as needed */
+    max-width: 300px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    flex-direction: column;
+    padding: 5rem 2rem 2rem;
+    gap: 1.5rem;
+    align-items: flex-start; /* Align items left */
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+    z-index: 100; /* Below the button but above content */
+    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth transition */
+  }
+
+  .nav-list.active {
+    right: 0; /* Slide in when active */
+  }
+
+   .nav-list a {
+     font-size: 1rem;
+     padding: 0.75rem 0;
+     width: 100%; /* Make links take full width */
+   }
+
+   .nav-list a::after {
+     /* Optional: Adjust underline for mobile */
+     bottom: 5px;
+   }
+}
+
+@media (max-width: 480px) {
+  .logo-container h1 {
+    font-size: 1.1rem;
+  }
+
+  .app-header .logo-img {
+    height: 28px;
+  }
+
+  .header-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* Target the Nav component directly within the header */
+.app-header > nav {
+  grid-column: 2 / 3;
+  display: flex;
+  justify-content: center;
+} 

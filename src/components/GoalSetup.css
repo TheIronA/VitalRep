@@ -1,0 +1,44 @@
+/* src/components/GoalSetup.css */
+
+/* Style the container for step navigation buttons */
+.step-navigation-controls {
+  display: flex;
+  justify-content: space-between; /* Changed to space-between */
+  gap: 0.75rem; /* Gap is still useful if more buttons are added later */
+  margin-top: 1.5rem; /* Add space above the buttons */
+}
+
+/* --- Step Indicator Styles --- */
+.step-indicator {
+  margin-bottom: 1.5rem; /* Space below indicator */
+}
+
+.step-indicator-text {
+  font-size: 0.85rem;
+  color: #6c757d; /* Muted text color */
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.step-indicator-bar-container {
+  background-color: #e9ecef; /* Light grey background for the bar */
+  border-radius: 4px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.step-indicator-bar-progress {
+  background-color: #4361ee; /* Theme color for progress */
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease-out; /* Animate width change */
+}
+
+/* --- Step Title Styles --- */
+.step-title {
+  font-size: 1.25rem; /* Example size */
+  font-weight: 600; /* Example weight */
+  color: #343a40; /* Example color */
+  text-align: center; /* Center the title */
+  margin-bottom: 1.5rem; /* Added margin below title */
+}

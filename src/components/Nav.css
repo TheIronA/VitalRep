@@ -1,0 +1,34 @@
+/* CSS for Nav Component */
+
+/* Add styles for the generated placeholder classes below */
+
+/* .generated-nav-class-1: Originally "mobile-menu-btn" */
+/* NOTE: This might be a custom class. Check if it exists elsewhere or define styles here. */
+
+/* .generated-nav-class-2: Originally "w-6 h-6" */
+/* Used for SVG icons */
+
+/* .generated-nav-class-3: Originally "w-6 h-6" */
+/* Used for SVG icons */
+
+/* .generated-nav-class-4: Originally "nav-list" */
+/* NOTE: This is likely a custom class. Add styles for 'active' state. */
+/* .active: Add styles for active mobile menu */
+
+/* Add any other necessary styles for nav items, links, etc. */
+
+/* Specific styles for Nav.js if any */
+
+/* Example: Style the SVG icons in the mobile menu button */
+.mobile-menu-btn svg {
+  width: 1.5em; /* Adjust size as needed */
+  height: 1.5em;
+}
+
+/* Ensure nav links inherit body font */
+.nav-link {
+  /* font-family: inherit; */ /* Usually not needed, but can be explicit */
+  /* Styles specific to nav links if different from Header.css .nav-list a */
+  /* Example: Add padding if used outside .nav-list */
+  /* padding: 0.5rem 1rem; */ 
+} 

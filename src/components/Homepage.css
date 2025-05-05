@@ -1,0 +1,523 @@
+/* src/components/Homepage.css */
+
+/* Card styling (if used directly in Homepage or general enough) */
+.card {
+  background: rgba(255, 255, 255, 0.85); /* Restored glass, slightly less transparent like header */
+  backdrop-filter: blur(10px); /* Restored blur, matching header */
+  -webkit-backdrop-filter: blur(10px); /* Restored blur */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Restored transparent border */
+  border-radius: 12px; /* Keep softened radius */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06); /* Keep softer shadow */
+  padding: 2rem; /* Keep increased padding */
+  margin-bottom: 2.5rem; /* Increased margin from 2rem */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Keep transition */
+}
+
+/* General Button styling */
+button, .button {
+  /* background: linear-gradient(135deg, #4361ee, #3a0ca3); */ /* Keep gradient? Or solid? Try solid */
+  background-color: #4361ee; /* Primary solid color */
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem; /* Adjust padding */
+  border-radius: 8px; /* Consistent radius */
+  font-weight: 500; /* Medium weight */
+  font-family: inherit; /* Ensure font is inherited */
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(67, 97, 238, 0.15);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none; 
+}
+
+button:disabled, .button:disabled {
+  background-color: #adb5bd; /* Muted grey for disabled */
+  color: #f8f9fa;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+button:hover:not(:disabled),
+.button:hover:not(:disabled) {
+  background-color: #879af6; /* Darker shade on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 7px 16px rgba(67, 97, 238, 0.25);
+}
+
+/* Specific button variations */
+.button-next { /* Often same as default */ }
+
+.button-primary {
+  background-color: #10b981; /* Example green */
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+.button-primary:hover:not(:disabled) {
+  background-color: #0fa972; /* Darker green */
+  box-shadow: 0 7px 16px rgba(16, 185, 129, 0.3);
+}
+
+.button-previous {
+  background-color: #e9ecef; /* Light grey */
+  color: #495057; /* Darker grey text */
+  box-shadow: none;
+}
+
+.button-previous:hover:not(:disabled) {
+  background-color: #dee2e6; /* Slightly darker grey */
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* Styles for generated text elements (kept from previous steps) */
+.welcome-card {
+  text-align: center;
+}
+.generated-homepage-class-2 { /* h1 */
+  font-size: 2.5rem; /* Larger */
+  font-weight: 700; /* Bold */
+  color: #212529; /* Darker heading color */
+  margin-bottom: 0.75rem; /* Adjust margin */
+  line-height: 1.2;
+}
+.generated-homepage-class-3 { /* span in h1 */
+  color: #4361ee; /* Theme color */
+}
+.generated-homepage-class-4 { /* p */
+  font-size: 1.1rem; /* Slightly larger */
+  color: #495057; /* Softer grey */
+  max-width: 45rem; /* Adjust max width */
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* --- GoalSetup / SelectionButton Styles --- */
+.selection-button {
+  border: 1px solid #e5e7eb; /* border-gray-200 */
+  border-radius: 10px; /* Match card radius? */
+  transition: all 0.2s ease-in-out, transform 0.15s ease; /* Add transform transition */
+  max-width: 450px; /* Keep max-width */
+  width: 100%; /* Added: Take full width up to max-width */
+  display: flex; /* Added: Make button a flex container */
+  align-items: center; /* Added: Vertically center content in button */
+  margin-left: auto; /* Keep for centering */
+  margin-right: auto; /* Keep for centering */
+  padding: 0; 
+  overflow: hidden;
+  background: #f3f4f6; /* Use background property */
+  color: #374151; /* Explicitly set non-selected text color */
+  cursor: pointer;
+  margin-bottom: 0.75rem; /* Space between buttons */
+  text-align: left; 
+  font-family: inherit; /* Ensure font */
+}
+
+.selection-button:hover {
+  background: #e5e7eb; /* Use background property */
+  border-color: #d1d5db; /* hover:border-gray-300 */
+  transform: scale(1.015); /* Subtle scale on hover */
+}
+
+/* Focus styles */
+.selection-button:focus {
+  outline: 2px solid transparent; /* focus:outline-none */
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #6366f1; /* focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 */
+  transform: scale(1.015); /* Also scale on focus */
+}
+
+/* Inner container for padding and flex layout */
+.selection-button-inner {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem; /* Increased padding from 1rem */
+  width: 100%; /* Added: Ensure inner div takes full width */
+}
+
+/* Image container */
+.selection-button-image-container {
+  width: 3.5rem; /* w-14 */
+  height: 3.5rem; /* h-14 */
+  border-radius: 0.5rem; /* rounded-lg */
+  overflow: hidden;
+  /* margin-right: 0.75rem; */ /* Removed */
+  margin-left: 0.75rem; /* Added */
+  flex-shrink: 0;
+}
+
+.selection-button-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text content container */
+.selection-button-text-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Label/Title style */
+.selection-button-label {
+  font-weight: 600;
+  font-size: 1.05rem; /* Adjusted size */
+  margin-bottom: 0.2rem;
+  color: #343a40;
+}
+
+/* Description style */
+.selection-button-description {
+  font-size: 0.8rem; /* Adjusted size */
+  line-height: 1.4;
+  color: #6c757d;
+}
+
+/* Selected state styles */
+.selection-button.selected {
+  background: #e7eaff; /* Lighter indigo background */
+  border-color: #aeb8ff; /* Lighter indigo border */
+  box-shadow: 0 4px 10px rgba(67, 97, 238, 0.1);
+  transform: scale(1.01); /* Keep slightly scaled when selected */
+}
+
+.selection-button.selected .selection-button-label {
+  color: #3a0ca3; /* Darker indigo */
+}
+
+.selection-button.selected .selection-button-description {
+  color: #4361ee; /* Primary indigo */
+}
+
+/* Goal Setup Specific Styles */
+.goal-option-image {
+  width: 100%;
+  height: 150px; /* Adjust as needed */
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+
+/* Goal Option (radio group item) Styling */
+.goal-option {
+  display: flex; /* Arrange content horizontally */
+  align-items: center; /* Vertically center items */
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 0.75rem 1rem; /* Adjusted padding */
+  cursor: pointer;
+  /* text-align: center; Removed */
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  opacity: 0; /* Start hidden for animation */
+  transform: translateY(10px); /* Start slightly lower for animation */
+  max-width: 400px; /* Control max width */
+  width: 100%; /* Take available width up to max */
+  margin-bottom: 0.75rem; /* Add space between buttons */
+}
+
+/* Apply animation */
+.goal-option.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Stagger animation delays */
+.goal-option:nth-child(1) { animation-delay: 0s; }
+.goal-option:nth-child(2) { animation-delay: 0.05s; }
+.goal-option:nth-child(3) { animation-delay: 0.1s; }
+.goal-option:nth-child(4) { animation-delay: 0.15s; }
+/* Add more if needed */
+
+.goal-option:not(.selected) {
+  /* Styles for non-selected options */
+}
+
+/* Combine hover and focus for non-selected */
+.goal-option:not(.selected):hover,
+.goal-option:not(.selected):focus {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border-color: rgba(67, 97, 238, 0.3);
+  background-color: rgba(255, 255, 255, 0.9);
+  outline: none; /* Remove default focus outline if custom is applied */
+}
+
+/* Add distinct focus style if needed, or rely on hover/border */
+.goal-option:focus {
+  outline: 2px solid #4361ee; /* Example focus outline */
+  outline-offset: 2px;
+}
+
+.goal-option.selected {
+  border-color: #4361ee;
+  background-color: rgba(67, 97, 238, 0.1);
+  box-shadow: 0 6px 18px rgba(67, 97, 238, 0.15);
+  transform: scale(1.03); /* Keep selected scaling */
+  outline: none; /* Remove outline when selected */
+}
+
+/* Container for the image */
+.goal-option .img-container {
+  /* margin-bottom: 0.75rem; Removed */
+  margin-right: 1rem; /* Space between image and text */
+  /* overflow: hidden; Removed */
+  border-radius: 8px; /* Apply radius here */
+  flex-shrink: 0; /* Prevent image from shrinking */
+  width: 60px; /* Set fixed width */
+  height: 60px; /* Set fixed height */
+}
+
+.goal-option img {
+  display: block;
+  width: 100%; /* Fill the container */
+  height: 100%; /* Fill the container */
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  border-radius: 8px; /* Match container radius */
+}
+
+/* Remove image hover effect if desired */
+/* .goal-option:hover img {
+  transform: scale(1.05);
+} */
+
+/* NEW container for text content */
+.goal-text-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Align text left */
+}
+
+.goal-option h3 {
+  /* margin-bottom: 0.5rem; Removed */
+  margin: 0 0 0.25rem 0; /* Small bottom margin */
+  font-size: 1rem; /* Adjusted size */
+  color: #1a1a2e;
+  font-weight: 600;
+}
+
+.goal-option p {
+  font-size: 0.85rem; /* Adjusted size */
+  color: #4a5568; /* Slightly muted color */
+  line-height: 1.3;
+  margin: 0; /* Remove default margin */
+}
+
+/* Workout Plan specific styles */
+.workout-card {
+ position: relative;
+ overflow: hidden;
+}
+
+.workout-card::before {
+ content: "";
+ position: absolute;
+ top: -50%;
+ left: -50%;
+ width: 200%;
+ height: 200%;
+ background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+ transition: transform 0.5s ease;
+ transform-origin: center;
+ z-index: 0;
+ pointer-events: none;
+ transform: scale(0);
+}
+
+.workout-card:hover::before {
+ transform: scale(1);
+}
+
+/* Profile Section Styles (if applicable) */
+.profile-section {
+ background: linear-gradient(135deg, #f5f7fa, #e0e5ec);
+ border-radius: 12px;
+ padding: 1.5rem;
+ box-shadow: 5px 5px 15px #c8cdd3, -5px -5px 15px #ffffff;
+ transition: box-shadow 0.3s ease;
+ margin-bottom: 1.5rem;
+}
+
+.profile-section:hover {
+ box-shadow: 7px 7px 20px #c8cdd3, -7px -7px 20px #ffffff;
+}
+
+/* Media Queries relevant to Homepage content */
+@media (max-width: 768px) {
+  .card {
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  button, .button {
+    padding: 0.55rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Style for centering text in the welcome card */
+.welcome-card {
+  text-align: center; /* Apply text-center if needed */
+}
+
+/* Keep text styles */
+.generated-homepage-class-2 {
+  /* Styles for h1 */
+  font-size: 2.25rem; /* approx text-4xl */
+  font-weight: 800; /* font-extrabold */
+  color: #111827; /* gray-900 */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.generated-homepage-class-3 {
+  /* Styles for span inside h1 */
+  color: #4f46e5; /* indigo-600 */
+}
+
+.generated-homepage-class-4 {
+  /* Styles for p */
+  font-size: 1.125rem; /* approx text-lg */
+  color: #4b5563; /* gray-600 */
+  max-width: 42rem; /* max-w-2xl */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- GoalSetup / SelectionButton Styles --- */
+
+/* Base styles for the selection button container */
+.selection-button {
+  border: 1px solid #e5e7eb; /* border-gray-200 */
+  border-radius: 0.75rem; /* rounded-xl */
+  transition: all 0.2s ease-in-out;
+  max-width: 450px; /* Keep max-width */
+  width: 100%; /* Added: Take full width up to max-width */
+  display: flex; /* Added: Make button a flex container */
+  align-items: center; /* Added: Vertically center content in button */
+  margin-left: auto; /* Keep for centering */
+  margin-right: auto; /* Keep for centering */
+  padding: 0; 
+  overflow: hidden;
+  background: #f3f4f6; /* Use background property */
+  color: #374151; /* Explicitly set non-selected text color */
+  cursor: pointer;
+  margin-bottom: 0.75rem; /* Space between buttons */
+  text-align: left; 
+}
+
+.selection-button:hover {
+  background: #e5e7eb; /* Use background property */
+  border-color: #d1d5db; /* hover:border-gray-300 */
+}
+
+/* Focus styles */
+.selection-button:focus {
+  outline: 2px solid transparent; /* focus:outline-none */
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #6366f1; /* focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 */
+}
+
+/* Inner container for padding and flex layout */
+.selection-button-inner {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem; /* Increased padding from 1rem */
+  width: 100%; /* Added: Ensure inner div takes full width */
+}
+
+/* Image container */
+.selection-button-image-container {
+  width: 3.5rem; /* w-14 */
+  height: 3.5rem; /* h-14 */
+  border-radius: 0.5rem; /* rounded-lg */
+  overflow: hidden;
+  /* margin-right: 0.75rem; */ /* Removed */
+  margin-left: 0.75rem; /* Added */
+  flex-shrink: 0;
+}
+
+.selection-button-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text content container */
+.selection-button-text-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Label/Title style */
+.selection-button-label {
+  font-weight: 600; /* font-semibold */
+  font-size: 1.1rem; /* Increased from 1rem */
+  margin-bottom: 0.125rem; /* mb-0.5 */
+  color: #1f2937; /* text-gray-800 */
+}
+
+/* Description style */
+.selection-button-description {
+  font-size: 0.85rem; /* Increased from 0.75rem */
+  line-height: 1.3; /* leading-snug approximation */
+  color: #6b7280; /* text-gray-500 */
+}
+
+/* Selected state styles */
+.selection-button.selected {
+  background: #eef2ff; /* Use background property */
+  border-color: #6366f1; /* border-indigo-500 */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-md */
+}
+
+.selection-button.selected .selection-button-label {
+  color: #3730a3; /* text-indigo-800 */
+}
+
+.selection-button.selected .selection-button-description {
+  color: #4f46e5; /* text-indigo-600 */
+}
+
+/* --- Remove Old/Conflicting Goal Option Styles --- */
+/*
+.goal-option { ... }
+.goal-option.animate-fade-in { ... }
+.goal-option:nth-child(1) { ... }
+.goal-option:nth-child(2) { ... }
+.goal-option:nth-child(3) { ... }
+.goal-option:nth-child(4) { ... }
+.goal-option:not(.selected) { ... }
+.goal-option:not(.selected):hover,
+.goal-option:not(.selected):focus { ... }
+.goal-option:focus { ... }
+.goal-option.selected { ... }
+.goal-option .img-container { ... }
+.goal-option img { ... }
+.goal-text-content { ... }
+.goal-option h3 { ... }
+.goal-option p { ... }
+.goal-option-image { ... }
+@keyframes fadeIn { ... }
+.animate-fade-in { ... }
+*/ 

@@ -1,0 +1,57 @@
+/* src/components/Footer.css */
+.app-footer {
+  grid-area: footer;
+  padding: 1.5rem 5%; /* Adjust padding */
+  /* background: rgba(255, 255, 255, 0.8); */ /* Remove glass? */
+  background-color: #ffffff; /* Match card background */
+  /* backdrop-filter: blur(12px); */
+  /* -webkit-backdrop-filter: blur(12px); */
+  /* border-top: 1px solid rgba(255, 255, 255, 0.3); */
+  border-top: 1px solid #e9ecef; /* Match card border */
+  text-align: center;
+  margin-top: 3rem; /* Add more margin top */
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: #495057; /* Softer grey for links */
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-size: 0.85rem; /* Slightly smaller */
+}
+
+.footer-links a:hover {
+  color: #4361ee; /* Theme color on hover */
+}
+
+.footer-copyright {
+  font-size: 0.8rem;
+  color: #6c757d; /* Muted color */
+}
+
+/* Media query adjustments */
+@media (max-width: 768px) {
+  .app-footer {
+    padding: 1.5rem 4%;
+  }
+  .footer-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+} 

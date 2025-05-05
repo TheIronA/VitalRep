@@ -1,20 +1,19 @@
-// import './App.css'; // Keep or remove if App.css is unused
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import './App.css'; // Import the CSS file
 import Header from './components/Header';
-import Nav from './components/Nav';
 import Main from './components/Main';
 import Footer from './components/Footer';
-import Homepage from './components/Homepage';
 
 function App() {
   return (
-    <>
-      <Header />
-      <Nav />
-      <Main>
-        <Homepage />
-      </Main>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <div className="generated-app-class-1 app-container">
+        <Header />
+        <Main />
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

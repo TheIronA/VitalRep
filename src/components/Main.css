@@ -1,0 +1,28 @@
+/* src/components/Main.css */
+.main-content { /* Use standard class name */
+  grid-area: main;
+  padding: 2rem 5%;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Media query adjustments */
+@media (max-width: 992px) {
+  .main-content {
+    padding: 1.5rem 3%;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1.5rem 4%;
+  }
+}
+
+/* CSS for Main Component */
+
+/* Add styles for the generated placeholder classes below */
+
+/* .generated-main-class-1: Originally "main-content" */
+/* NOTE: This is likely a custom class. Check existing Main.css */ 
