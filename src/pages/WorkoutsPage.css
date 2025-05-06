@@ -1,5 +1,13 @@
 /* src/pages/WorkoutsPage.css */
 
+/* Page container specific to Workouts Page */
+.page-container {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 2rem; /* Add some top/bottom padding if needed */
+  padding-bottom: 2rem;
+}
+
 /* Card styling (used for wrapping sections) */
 .card {
   background: rgba(255, 255, 255, 0.85); /* Glass effect */
@@ -95,6 +103,19 @@ button:hover:not(:disabled),
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
+}
+
+/* Error message styling */
+.error-card {
+  border-color: rgba(220, 53, 69, 0.3);
+  background-color: rgba(255, 240, 245, 0.9);
+}
+
+.error-message {
+  color: #dc3545;
+  font-weight: 500;
+  text-align: center;
+  padding: 0.5rem 0;
 }
 
 /* --- GoalSetup / SelectionButton Styles (Using second definition block from user input) --- */
@@ -294,31 +315,147 @@ button:hover:not(:disabled),
 }
 
 /* Workout Plan specific styles */
-.workout-card { /* Apply to the card showing the generated plan */
- position: relative;
- overflow: hidden;
- /* Inherits .card styles, add specific workout plan styles below */
+.workout-card { 
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9); /* Slightly more opaque for content readability */
+  padding: 1.5rem; /* Adjusted padding */
 }
 
 .workout-card::before {
- content: "";
- position: absolute;
- top: -50%;
- left: -50%;
- width: 200%;
- height: 200%;
- background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
- transition: transform 0.5s ease;
- transform-origin: center;
- z-index: 0;
- pointer-events: none;
- transform: scale(0);
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(67, 97, 238,0.05) 0%, rgba(255,255,255,0) 70%); /* Subtle effect */
+  transition: transform 0.7s ease;
+  transform-origin: center;
+  z-index: 0;
+  pointer-events: none;
+  transform: scale(0);
 }
 
 .workout-card:hover::before {
- transform: scale(1);
+  transform: scale(1);
 }
 
+.workout-plan-container {
+  padding: 1rem;
+}
+
+.workout-plan-title {
+  font-size: 2.2rem; /* Slightly smaller than page title */
+  font-weight: 700;
+  color: #2c3e50; /* Dark blue/grey */
+  margin-bottom: 0.5rem;
+  text-align: center;
+  border-bottom: 2px solid #4361ee;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.workout-plan-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.workout-schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+  gap: 1.5rem; /* Spacing between day cards */
+}
+
+.workout-day-card {
+  background: #ffffff;
+  border: 1px solid #e0e5ec;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.workout-day-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.workout-day-card.rest-day {
+  background-color: #f8f9fa; /* Lighter background for rest days */
+  border-left: 5px solid #6c757d; /* Grey left border for rest days */
+}
+
+.workout-day-card.rest-day .workout-day-title {
+  color: #6c757d;
+}
+
+.workout-day-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #4361ee; /* Primary color for day titles */
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.exercise-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.exercise-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f0f2f5; /* Lighter separator for exercises */
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.exercise-item:last-child {
+  border-bottom: none;
+}
+
+.exercise-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #343a40;
+}
+
+.exercise-details {
+  font-size: 0.85rem;
+  color: #555;
+  display: flex;
+  flex-wrap: wrap; /* Allow details to wrap on smaller screens */
+  gap: 0.25rem 0.75rem; /* vertical and horizontal gap */
+}
+
+.exercise-details .detail-item {
+  padding: 0.2rem 0.4rem;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.exercise-details .detail-item.sets { background-color: #d1e7dd; color: #0f5132; }
+.exercise-details .detail-item.reps { background-color: #cff4fc; color: #055160; }
+.exercise-details .detail-item.rest { background-color: #fff3cd; color: #664d03; }
+
+.workout-day-info,
+.rest-day-message {
+  font-size: 0.9rem;
+  color: #6c757d; /* Muted color for info/rest messages */
+  font-style: italic;
+  padding: 0.5rem 0;
+}
 
 /* Media Queries relevant to WorkoutsPage content */
 @media (max-width: 768px) {
@@ -331,6 +468,19 @@ button:hover:not(:disabled),
   }
   .generated-homepage-class-4 { /* p */
       font-size: 1rem;
+  }
+  .workout-plan-title {
+    font-size: 1.8rem;
+  }
+  .workout-plan-description {
+    font-size: 0.95rem;
+  }
+  .workout-day-title {
+    font-size: 1.3rem;
+  }
+  .workout-schedule-grid {
+    grid-template-columns: 1fr; /* Stack day cards on smaller screens */
+    gap: 1rem;
   }
 }
 
@@ -367,5 +517,21 @@ button:hover:not(:disabled),
   }
   .goal-option p {
       font-size: 0.8rem;
+  }
+  .workout-plan-title {
+    font-size: 1.6rem;
+  }
+  .workout-day-card {
+    padding: 1rem;
+  }
+  .exercise-name {
+    font-size: 0.95rem;
+  }
+  .exercise-details {
+    font-size: 0.8rem;
+  }
+  .exercise-details .detail-item {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.3rem;
   }
 } 

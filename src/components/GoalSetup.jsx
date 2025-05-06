@@ -142,9 +142,22 @@ const GoalSetup = ({ onGeneratePlan }) => {
   };
 
   const handleSubmit = () => {
-     if (!goal || !level || !equipment) return; // Prevent submission if any step is incomplete
-     console.log("Generating plan with:", { goal, level, equipment }); // Debug log
-     onGeneratePlan(goal, level, equipment);
+    if (!goal || !level || !equipment) {
+      console.error("Cannot generate plan: missing required selections", { goal, level, equipment });
+      return;
+    }
+    
+    console.log("Generating plan with:", { goal, level, equipment });
+    
+    try {
+      if (typeof onGeneratePlan === 'function') {
+        onGeneratePlan(goal, level, equipment);
+      } else {
+        console.error("onGeneratePlan is not a function", onGeneratePlan);
+      }
+    } catch (error) {
+      console.error("Error generating workout plan:", error);
+    }
   };
 
   // Generic button handler for Enter/Space keys

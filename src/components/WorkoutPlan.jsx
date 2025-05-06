@@ -4,8 +4,8 @@ const WorkoutPlan = ({ plan }) => {
   // Early return if no plan is provided or if it lacks essential data
   if (!plan || !plan.name || !plan.schedule || !plan.workouts) {
     return (
-        <div className="generated-workoutplan-class-1">
-            <p className="generated-workoutplan-class-2">Select your preferences above to generate a workout plan.</p>
+        <div className="workout-plan-message">
+            <p>Select your preferences above to generate a workout plan.</p>
         </div>
     );
   }
@@ -13,38 +13,38 @@ const WorkoutPlan = ({ plan }) => {
   const { name, description, schedule, workouts } = plan;
 
   return (
-    <div className="generated-workoutplan-class-3">
-      <h2 className="generated-workoutplan-class-4">{name}</h2>
-      <p className="generated-workoutplan-class-5">{description}</p>
+    <div className="workout-plan-container">
+      <h2 className="workout-plan-title">{name}</h2>
+      <p className="workout-plan-description">{description}</p>
 
-      <div className="generated-workoutplan-class-6">
+      <div className="workout-schedule-grid">
         {schedule.map((dayName, index) => {
           const dailyWorkouts = workouts[dayName] || [];
-          // Simple check if the workout definition is just informational text
           const isInfoOnly = dailyWorkouts.length === 1 && dailyWorkouts[0].exercise && !dailyWorkouts[0].sets;
+          const isRestDay = dailyWorkouts.length === 1 && dailyWorkouts[0].exercise && dailyWorkouts[0].exercise.toLowerCase().includes('rest day');
 
           return (
-            <div key={index} className="generated-workoutplan-class-7">
-              <h3 className="generated-workoutplan-class-8">{dayName}</h3>
+            <div key={index} className={`workout-day-card ${isRestDay ? 'rest-day' : ''}`}>
+              <h3 className="workout-day-title">{dayName}</h3>
               {isInfoOnly ? (
-                  <p className="generated-workoutplan-class-9">{dailyWorkouts[0].exercise}</p>
+                  <p className="workout-day-info">{dailyWorkouts[0].exercise}</p>
               ) : dailyWorkouts.length > 0 ? (
-                <ul className="generated-workoutplan-class-10">
+                <ul className="exercise-list">
                   {dailyWorkouts.map((workout, workoutIndex) => (
-                    <li key={workoutIndex} className="generated-workoutplan-class-11">
-                      <span className="generated-workoutplan-class-12">{workout.exercise}</span>
+                    <li key={workoutIndex} className="exercise-item">
+                      <span className="exercise-name">{workout.exercise}</span>
                       {(workout.sets || workout.reps || workout.rest) && (
-                          <span className="generated-workoutplan-class-13">
-                            {workout.sets && `Sets: ${workout.sets}`}
-                            {workout.reps && `, Reps: ${workout.reps}`}
-                            {workout.rest && `, Rest: ${workout.rest}`}
+                          <span className="exercise-details">
+                            {workout.sets && <span className="detail-item sets">Sets: {workout.sets}</span>}
+                            {workout.reps && <span className="detail-item reps">Reps: {workout.reps}</span>}
+                            {workout.rest && <span className="detail-item rest">Rest: {workout.rest}</span>}
                           </span>
                       )}
                     </li>
                   ))}
                 </ul>
               ) : (
-                <p className="generated-workoutplan-class-14">Rest day or details not available.</p>
+                <p className="rest-day-message">Details not available. Likely a rest day.</p> // Fallback, though isRestDay should catch most
               )}
             </div>
           );
